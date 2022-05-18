@@ -1,0 +1,39 @@
+{
+  "name": "@kudobuzz/kbjs-core",
+  "version": "0.0.0",
+  "description": "Core wrapper for kudobuzz client packages",
+  "keywords": [
+    "Kudobuzz"
+  ],
+  "author": "Theophilus Annor <theophilus.annor@kudobuzz.com",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "tsc": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "axios": "0.27.2",
+    "axios-retry": "3.2.5",
+    "yup": "0.32.11"
+  },
+  "devDependencies": {
+    "@types/jest": "27.5.1",
+    "nock": "13.2.4",
+    "ts-jest": "28.0.2",
+    "ts-node": "10.7.0"
+  },
+  "publishConfig": {
+    "directory": "lib"
+  }
+}
