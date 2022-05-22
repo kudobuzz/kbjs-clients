@@ -12,5 +12,8 @@
   "scripts": {
     "pretest": "lerna bootstrap",
     "test": "lerna run test"
+  },
+  "dependencies": {
+    "axios": "0.27.2"
   }
 }
