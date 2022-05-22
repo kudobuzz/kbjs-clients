@@ -1,12 +1,12 @@
 {
   "name": "@kudobuzz/kbjs-core",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Core wrapper for kudobuzz client packages",
   "keywords": [
     "Kudobuzz"
   ],
   "author": "Theophilus Annor <theophilus.annor@kudobuzz.com",
-  "homepage": "",
+  "homepage": "https://github.com/kudobuzz/kbjs-client/packages/cores#readme",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -20,7 +20,8 @@
   "scripts": {
     "tsc": "tsc",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepublishOnly": "npm run test && npm run tsc"
   },
   "dependencies": {
     "axios": "0.27.2",
