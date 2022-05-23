@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        always-auth: true
     - run: npm ci
     - run: lerna exec npm install
     - run: npm test
