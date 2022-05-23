@@ -25,11 +25,6 @@
   "bugs": {
     "url": "https://github.com/kudobuzz/kbjs-clients/issues"
   },
-  "devDependencies": {
-    "@faker-js/faker": "6.3.1",
-    "@types/jest": "27.5.1",
-    "nock": "13.2.4"
-  },
   "dependencies": {
     "@kudobuzz/kbjs-core": "0.0.2"
   }

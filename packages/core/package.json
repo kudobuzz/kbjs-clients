@@ -28,12 +28,6 @@
     "axios-retry": "3.2.5",
     "yup": "0.32.11"
   },
-  "devDependencies": {
-    "@types/jest": "27.5.1",
-    "nock": "13.2.4",
-    "ts-jest": "28.0.2",
-    "ts-node": "10.7.0"
-  },
   "publishConfig": {
     "directory": "lib"
   }
