@@ -12,7 +12,7 @@ describe('Apm', () => {
 
     describe('Get Create Customer', () => {
         it('should fail if payload is not passed', () => {
-            return expect(businessClient.createCustomer).toThrowError(
+            return expect(businessClient.createOrUpdateCustomer).toThrowError(
                 'payload is required'
             )
         })
@@ -26,7 +26,7 @@ describe('Apm', () => {
                 body: payload,
                 response: {}
             })
-            await businessClient.createCustomer({
+            await businessClient.createOrUpdateCustomer({
                 body: payload,
                 apmId
             })

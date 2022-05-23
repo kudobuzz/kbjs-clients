@@ -1,11 +1,16 @@
-# `apm`
+# KBJS Core
+A wrapper for core Kudobuzz client utils.
 
-> TODO: description
+## Installation
 
-## Usage
+`npm i --save @kudobuzz/kbclient`
 
-```
-const apm = require('apm');
 
-// TODO: DEMONSTRATE API
+# Usage 
+
+``` javascript
+
+const kbClient = require('@kudobuzz/kbclient')('accessToken')
+
+kbClient.apm.createOrUpdateCustomer()
 ```
