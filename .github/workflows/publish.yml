@@ -22,6 +22,6 @@ jobs:
       
     - name: "Version and publish"
       run: |
-        lerna version --conventional-commits --conventional-graduate 
-        lerna publish from-git 
+        lerna version --conventional-commits --conventional-graduate --yes
+        lerna publish from-git  --yes
 
