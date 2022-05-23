@@ -10,7 +10,7 @@ export default function initApm(accessToken: string = utils.required('accessToke
         /**
          * Create or update apm customer
          */
-        createCustomer: (payload: CreateCustomerPayload = utils.required('payload')) => {            
+        createOrUpdateCustomer: (payload: CreateCustomerPayload = utils.required('payload')) => {            
             return request<ApmCustomer>({
                 path: `/apms/${payload.apmId}/customers`,
                 method: 'POST',
