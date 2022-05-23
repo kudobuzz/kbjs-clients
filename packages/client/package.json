@@ -26,6 +26,6 @@
     "url": "https://github.com/kudobuzz/kbjs-clients/issues"
   },
   "dependencies": {
-    "@kudobuzz/kbjs-core": "0.0.2"
+    "@kudobuzz/kbjs-core": "0.0.3"
   }
 }
