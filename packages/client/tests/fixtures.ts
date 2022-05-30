@@ -86,12 +86,86 @@ const makeCustomer = (overrides = {}) => Object.assign({}, overrides, {
     name: faker.name.firstName(),
     email: faker.internet.email(),
     phone: faker.phone.phoneNumber(),
+    first_name: faker.name.firstName(),
+    last_name: faker.name.lastName(),
 })
 
 
+const makeOrder = (overrides: any = {})=>{ 
+    const customer = overrides.customer
+    delete overrides.customer
+    const lineItems = overrides.line_items || [{}, {}]
+    delete overrides.line_items
+    const order = Object.assign({}, overrides)
+    const shopDomain = `${faker.internet.domainWord().toLowerCase()}.myshopify.com`
+    const customerEmail = faker.internet.email()
+    const firstName = faker.name.firstName()
+    const lastName = faker.name.lastName()
+    return Object.assign(
+      {
+        subtotal_price: faker.random.number({ min: 10, max: 1000 }) + '.00',
+        buyer_accepts_marketing: true,
+        cart_token: 'token',
+        number: faker.random.number({ min: 100, max: 1000 }),
+        currency: 'USD',
+        processed_at: Date.now(),
+        source: `${faker.lorem.word()}-${faker.random.number()}`,
+        created_at_platform: Date.now(),
+        updated_at_platform: Date.now(),
+        shop_domain: shopDomain,
+        shop_id: faker.random.alphaNumeric(23),
+        order_id: faker.random.number({ min: 1000000, max: 9999999 }).toString(),
+        financial_status: 'voided',
+        total_line_items_price:
+          faker.random.number({ min: 10, max: 1000 }) + '.00',
+        email: customerEmail,
+        line_items: lineItems.map(lineItem => Object.assign({
+          requires_shipping: true,
+          product_exists: true,
+          sku: faker.random.alphaNumeric(12).toUpperCase(),
+          title: lineItem.title || faker.commerce.productName(),
+          variant_title: faker.commerce.productName(),
+          product_id: lineItem.product_id || faker.random.number({ min: 1000000, max: 99999999 }),
+          fulfillment_service: 'manual',
+          total_discount: 0,
+          fulfillment_status: faker.random.arrayElement(['fulfilled', null]),
+          quantity: lineItem.quantity || faker.random.number({ min: 1, max: 4 }),
+          price: lineItem.price || faker.random.number({ min: 300, max: 1000 }),
+          taxable: true,
+          properties: [],
+          name: lineItem.name || faker.commerce.productName(),
+          grams: faker.random.number({ min: 200, max: 10000 })
+        })),
+        total_price: 403,
+        name: '#9999',
+        order_number: 1234,
+        fulfillment_status: 'pending',
+        customer: customer !== null
+          ? Object.assign({
+            total_spent: '0.00',
+            first_name: firstName,
+            last_name: lastName,
+            name: firstName + ' ' + lastName,
+            orders_count: 0,
+            updated_at_platform: Date.now(),
+            id: faker.datatype.uuid(),
+            created_at_platform: Date.now(),
+            accepts_marketing: false,
+            phone: faker.phone.phoneNumber(),
+            state: 'disabled',
+            email: customerEmail,
+            verified_email: true
+          }, customer)
+          : undefined
+      },
+      order
+    )
+
+}
 
 export default {
     makeApm,
     makeCustomer,
+    makeOrder,
     faker
 }
