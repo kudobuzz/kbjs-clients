@@ -11,9 +11,7 @@ type RequestPayload = {
     path: string,
     method: Method
     accessToken: string
-    query?: {
-        [key: string]: string | number | Date
-    }
+    query?: any
     body?: any
 }
 

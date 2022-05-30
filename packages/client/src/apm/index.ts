@@ -1,22 +1,11 @@
-import { ApmProfile } from  '../types'
-import { CreateCustomerPayload, ApmCustomer } from './types'
 import utils from '../utils'
-import request from "../request";
-
+import customers from './customers';
+import orders from './orders';
 
 
 export default function initApm(accessToken: string = utils.required('accessToken')) {
     return {
-        /**
-         * Create or update apm customer
-         */
-        createOrUpdateCustomer: (payload: CreateCustomerPayload = utils.required('payload')) => {            
-            return request<ApmCustomer>({
-                path: `/apms/${payload.apmId}/customers`,
-                method: 'POST',
-                accessToken,
-                body: payload.body
-            })
-        }
+        customers: customers(accessToken),
+        orders: orders(accessToken)
     }
 }
