@@ -1,6 +1,6 @@
 {
   "name": "@kudobuzz/kbclient",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Wrapper for the Kudobuzz API",
   "author": "banphlet <annor_theophilus@hotmail.com>",
   "homepage": "https://github.com/kudobuzz/kbjs-clients#readme",
