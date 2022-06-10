@@ -2,7 +2,7 @@ import request from "../request";
 import utils from "../utils";
 import { CreateReviewPayload, Review } from "./types";
 
-export default function reviews(accessToken: string) {
+export default function reviews(accessToken: string = utils.required('accessToken')) {
     return {
         /**
          * 
