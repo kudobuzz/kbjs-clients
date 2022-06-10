@@ -103,21 +103,21 @@ const makeOrder = (overrides: any = {})=>{
     const lastName = faker.name.lastName()
     return Object.assign(
       {
-        subtotal_price: faker.random.number({ min: 10, max: 1000 }) + '.00',
+        subtotal_price: faker.datatype.number({ min: 10, max: 1000 }) + '.00',
         buyer_accepts_marketing: true,
         cart_token: 'token',
-        number: faker.random.number({ min: 100, max: 1000 }),
+        number: faker.datatype.number({ min: 100, max: 1000 }),
         currency: 'USD',
         processed_at: Date.now(),
-        source: `${faker.lorem.word()}-${faker.random.number()}`,
+        source: `${faker.lorem.word()}-${faker.datatype.number()}`,
         created_at_platform: Date.now(),
         updated_at_platform: Date.now(),
         shop_domain: shopDomain,
         shop_id: faker.random.alphaNumeric(23),
-        order_id: faker.random.number({ min: 1000000, max: 9999999 }).toString(),
+        order_id: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
         financial_status: 'voided',
         total_line_items_price:
-          faker.random.number({ min: 10, max: 1000 }) + '.00',
+          faker.datatype.number({ min: 10, max: 1000 }) + '.00',
         email: customerEmail,
         line_items: lineItems.map(lineItem => Object.assign({
           requires_shipping: true,
@@ -125,16 +125,16 @@ const makeOrder = (overrides: any = {})=>{
           sku: faker.random.alphaNumeric(12).toUpperCase(),
           title: lineItem.title || faker.commerce.productName(),
           variant_title: faker.commerce.productName(),
-          product_id: lineItem.product_id || faker.random.number({ min: 1000000, max: 99999999 }),
+          product_id: lineItem.product_id || faker.datatype.number({ min: 1000000, max: 99999999 }),
           fulfillment_service: 'manual',
           total_discount: 0,
-          fulfillment_status: faker.random.arrayElement(['fulfilled', null]),
-          quantity: lineItem.quantity || faker.random.number({ min: 1, max: 4 }),
-          price: lineItem.price || faker.random.number({ min: 300, max: 1000 }),
+          fulfillment_status: faker.helpers.arrayElement(['fulfilled', null]),
+          quantity: lineItem.quantity || faker.datatype.number({ min: 1, max: 4 }),
+          price: lineItem.price || faker.datatype.number({ min: 300, max: 1000 }),
           taxable: true,
           properties: [],
           name: lineItem.name || faker.commerce.productName(),
-          grams: faker.random.number({ min: 200, max: 10000 })
+          grams: faker.datatype.number({ min: 200, max: 10000 })
         })),
         total_price: 403,
         name: '#9999',
@@ -163,9 +163,25 @@ const makeOrder = (overrides: any = {})=>{
 
 }
 
+const makeReview = (overrides: any = {}) => Object.assign({}, {
+    external_id: faker.datatype.uuid(),
+    external_link: faker.internet.url(),
+    message: faker.lorem.paragraph(),
+    created_at_platform: faker.date.recent(30).toISOString(),
+    updated_at_platform: new Date().toISOString(),
+    rating: faker.datatype.number({ min: 1, max: 5 }),
+    status: {
+      type: 'published'
+    },
+    platform: 'yelp',
+    source: 'yelp_review',
+    reviewer: faker.random.alphaNumeric(12),
+}, overrides)
+
 export default {
     makeApm,
     makeCustomer,
     makeOrder,
-    faker
+    faker,
+    makeReview
 }
