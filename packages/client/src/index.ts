@@ -10,7 +10,7 @@ import utils from "./utils"
 export default function (accessToken: string = utils.required('accessToken')){
     return {
         /**
-         * Kudobuzz Business API
+         * Kudobuzz Core API
          */
         core: initCore(accessToken),
         /**
