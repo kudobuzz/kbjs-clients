@@ -1,5 +1,5 @@
 'use strict'
-import initMain from "./core"
+import initCore from "./core"
 import initApm from "./apm"
 import utils from "./utils"
 
@@ -12,7 +12,7 @@ export default function (accessToken: string = utils.required('accessToken')){
         /**
          * Kudobuzz Business API
          */
-        main: initMain(accessToken),
+        core: initCore(accessToken),
         /**
          * Kudobuzz APM API
          */
