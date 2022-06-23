@@ -10,11 +10,5 @@ Kbjs uses [lerna](https://lernajs.io/) to manage packages.
 - `npm install --global lerna` to install lerna globally.
 - `lerna bootstrap` to resolve packages from npm registry.
 
-_Note:_
-Some packages are private thus you might need an NPM_TOKEN to have access to some of the packages required.
-
-# Packages
-| package |     |
-| ------- | --- |
-| KBJS Core | [directory](packages/core) |
+## [Documentation](https://kudobuzz.github.io/kbjs-clients/#/core)
 
