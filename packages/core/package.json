@@ -1,6 +1,6 @@
 {
   "name": "@kudobuzz/kbjs-core",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Core wrapper for kudobuzz client packages",
   "keywords": [
     "Kudobuzz"
@@ -19,9 +19,8 @@
   ],
   "scripts": {
     "tsc": "tsc",
-    "test": "jest",
     "test:watch": "jest --watch",
-    "prepublishOnly": "npm run test && npm run tsc"
+    "prepublishOnly": "npm run tsc"
   },
   "dependencies": {
     "axios": "0.27.2",

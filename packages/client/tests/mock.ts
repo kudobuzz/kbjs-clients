@@ -9,7 +9,8 @@ type RequestPayload = {
     query?: any
     status?: 200 | 400 | 401 | 500 | 201
     response?: any
-    accessToken: string
+    accessToken?: string
+    clientId?: string
 }
 
 
@@ -20,11 +21,17 @@ export default function mockApiRequests({
     query = {},
     status = 200,
     response,
-    accessToken
+    accessToken,
+    clientId
 }: RequestPayload): nock.Scope {
     const nockBase = nock('https://api.kudobuzz.com', {
         reqheaders: {
-            'Authorization': `Bearer ${accessToken}`
+            ...accessToken && {
+                'Authorization': `Bearer ${accessToken}`
+            },
+            ...clientId && {
+                'x-client-id': clientId
+            }
         }
     })
     const mapMethodToNockMethod = {

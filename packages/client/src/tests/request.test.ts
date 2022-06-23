@@ -1,28 +1,19 @@
-import request from '../request'
+import makeRequest from '../request'
 import mock from '../../tests/mock'
 
 describe('Request', () => {
   const payload = {
     path: '/apms',
     method: 'GET',
-    accessToken: 'accessToken'
   }
-
-  const requiredParams = ['path', 'method', 'accessToken']
-
-  requiredParams.forEach(param => {
-    it(`should throw error if ${param} is not passed`, () => {
-      const params = { ...payload } as any
-      delete params[param]
-      expect(() => request(params)).toThrowError(`${param} is required`)
-    })
+  const request = makeRequest({
+    accessToken: 'accessToken'
   })
 
   it('should make request to kudobuzz api', async () => {
     const scope = mock({
       path: payload.path,
       method: 'get',
-      accessToken: payload.accessToken
     })
     await request(payload as any)
     expect(scope.isDone()).toBe(true)
@@ -40,7 +31,6 @@ describe('Request', () => {
     const scope = mock({
       path: payload2.path,
       method: 'get',
-      accessToken: payload2.accessToken,
       query: payload2.query
     })
     await request(payload2 as any)
@@ -75,7 +65,6 @@ describe('Request', () => {
     mock({
       path: payload2.path,
       method: 'post',
-      accessToken: payload2.accessToken,
       query: payload2.query,
       response
     })

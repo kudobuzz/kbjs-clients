@@ -1,11 +1,11 @@
-import request from "../request";
+import  { Request } from "../request";
 import utils from "../utils";
 import { CreateCustomerPayload, ApmCustomer } from "./types";
 
 
 
 
-export default function customers(accessToken: string) {
+export default function customers(request: Request) {
     return {
         /**
          * Create or update customer
@@ -14,7 +14,6 @@ export default function customers(accessToken: string) {
             return request<ApmCustomer>({
                 path: `/apms/${payload.apmId}/customers`,
                 method: 'POST',
-                accessToken,
                 body: payload.body
             })
         }

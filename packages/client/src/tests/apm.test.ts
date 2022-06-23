@@ -1,16 +1,16 @@
-import initApm from '../apm'
+import client from '../'
 import fixtures from '../../tests/fixtures'
 import mock from '../../tests/mock'
 
 describe('Apm', () => {
 
-    it('should throw error if accessToken is not passed', () => {
-        return expect(initApm).toThrowError('accessToken is required')
-    })
+    
 
     describe('Customers', () => {
         const accessToken = fixtures.faker.random.alphaNumeric(32)
-        const businessClient = initApm(accessToken)
+        const businessClient = client({
+            accessToken
+        }).apm
 
         describe('Create or Update Customer', () => {
             it('should fail if payload is not passed', () => {
@@ -39,7 +39,9 @@ describe('Apm', () => {
 
     describe('Orders', () => {
         const accessToken = fixtures.faker.random.alphaNumeric(32)
-        const businessClient = initApm(accessToken)
+        const businessClient = client({
+            accessToken
+        }).apm
 
         describe('Create Or Order', () => {
             it('should fail if payload is not passed', () => {
@@ -109,9 +111,10 @@ describe('Apm', () => {
                         business_id: businessId
                     }
                 })
-                await businessClient.orders.fetchOrders({
+              const orders =  await businessClient.orders.fetchOrders({
                     business_id: businessId
                 })
+                
                 expect(scope.isDone()).toBe(true)
             })
         });

@@ -1,8 +1,8 @@
-import request from "../request";
+import { Request } from "../request";
 import utils from "../utils";
 import { CreateReviewPayload, Review } from "./types";
 
-export default function reviews(accessToken: string = utils.required('accessToken')) {
+export default function reviews(request: Request = utils.required('authPayload')) {
     return {
         /**
          * 
@@ -12,8 +12,7 @@ export default function reviews(accessToken: string = utils.required('accessToke
             return request<Review>({
                 path: '/reviews',
                 method: 'POST',
-                accessToken,
-                body: payload
+                body: payload,
             })
         }
     }

@@ -1,14 +1,15 @@
 
+import { Request } from "../request";
 import utils from "../utils";
 import reviews from "./reviews";
 
 
 
-export default function initMain(accessToken: string = utils.required('accessToken')) {
+export default function initCore(request: Request = utils.required('authPayload')) {
     return {
         /**
          * Interact with reviews endpoints
          */
-        reviews: reviews(accessToken),
+        reviews: reviews(request),
     }
 }
