@@ -19,7 +19,6 @@
   ],
   "scripts": {
     "tsc": "tsc",
-    "test": "jest",
     "test:watch": "jest --watch",
     "prepublishOnly": "npm run tsc"
   },
