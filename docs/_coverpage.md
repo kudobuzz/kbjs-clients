@@ -11,4 +11,4 @@
 
 
 [Get Started](quickstart)
-[GitHub](https://github.com/docsify-mustache/docsify-mustache.github.io)
+[GitHub](https://github.com/kudobuzz/kbjs-clients)
