@@ -1,6 +1,6 @@
-## Authentication
+To authentication with this API
 
+- On your server use your Kudobuzz Token
+- On the client side use your Kudobuzz Client Id
 
-
-
-The  Kudobuzz API <small>0.0.2</small>
+Find your `clientId` and `token` [here](https://dashboard.kudobuzz.com/settings)

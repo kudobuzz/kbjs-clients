@@ -1,51 +1,100 @@
-
-
 export enum ReviewPlatform {
-    KUDOBUZZ = 'kudobuzz',
-    APM = 'apm'
+  KUDOBUZZ = 'kudobuzz',
+  APM = 'apm'
 }
 
 export enum Sources {
-    CUSTOM = 'custom'
+  CUSTOM = 'custom'
 }
 
 export enum Channels {
-    FACEBOOK = 'facebook',
-    GOOGLE = 'google',
-    EMAIL = 'email',
-    TWITTER = 'twitter',
-    AMAZON = 'amazon',
-    YELP = 'yelp',
-    ETSY = 'etsy',
+  FACEBOOK = 'facebook',
+  GOOGLE = 'google',
+  EMAIL = 'email',
+  TWITTER = 'twitter',
+  AMAZON = 'amazon',
+  YELP = 'yelp',
+  ETSY = 'etsy'
 }
 
 export interface CreateReviewPayload {
-    platform: ReviewPlatform.KUDOBUZZ
-    source: Sources
-    created_at_platform: Date
-    reviewer: {
-        external_reviewer_id: string
-        display_name: string
-        channel: Channels,
-        email?: string,
-        image?: {
-            profile_url?: string
-        }
-    }
-    rating: 1 | 2 | 3 | 4 | 5
+  /**
+   * Platform source
+   * @example
+   * kudobuzz
+   */
+  platform: ReviewPlatform.KUDOBUZZ
+  /**
+   * Review Source
+   */
+  source: Sources
+  /**
+   * Date review was collected on your platform
+   */
+  created_at_platform: Date
+  /**
+   * Reviewer
+   */
+  reviewer: {
     /**
-     * The id of a product this review is associated to 
+     * Id of the reviewer on your platform
      */
-    external_unique_id?: string[]
-    title?: string
-    message: string
-    media?: string[]
-    external_channel_id?: string
+    external_reviewer_id: string
+    /**
+     * Name of the Reviewer on your platform
+     */
+    display_name: string
+    /**
+     * Review Source Channel
+     */
+    channel: Channels
+    /**
+     * Email of the Reviewer
+     */
+    email?: string
+    /**
+     * Reviewer Image
+     */
+    image?: {
+      /**
+       * Profile Url of Reviewer
+       */
+      profile_url?: string
+    }
+  }
+  /**
+   * Review rating
+   */
+  rating: 1 | 2 | 3 | 4 | 5
+  /**
+   * The ids of product this review is associated to
+   */
+  external_unique_id?: string[]
+  /**
+   * Review Title
+   */
+  title?: string
+  /**
+   * Review message
+   */
+  message: string
+  /**
+   * Id of media associated with this review
+   */
+  media?: string[]
 }
 
-
 export interface Review extends CreateReviewPayload {
-    id: string
-    created_at: Date
-    updated_at: Date
+  /**
+   * Review Id
+   */
+  id: string
+  /**
+   * Date Review Created on Kudobuzz
+   */
+  created_at: Date
+  /**
+   * Date Review Updated on Kudobuzz
+   */
+  updated_at: Date
 }

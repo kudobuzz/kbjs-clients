@@ -62,8 +62,14 @@ export interface CreateOrUpdateCustomerPayloadBody {
   id?: string
 }
 
-export type CreateCustomerPayload = {
+export type CreateOrUpdateCustomerPayload = {
+  /**
+   * APM Id
+   */
   apmId: string
+  /**
+   * Custom payload
+   */
   body: CreateOrUpdateCustomerPayloadBody
 }
 

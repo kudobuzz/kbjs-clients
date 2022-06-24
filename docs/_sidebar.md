@@ -6,3 +6,4 @@
 - API Reference
 
   - [Core](core.md)
+  - [APM](apm.md)
