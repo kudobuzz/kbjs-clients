@@ -1,6 +1,6 @@
 {
   "name": "@kudobuzz/kbclient",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "Wrapper for the Kudobuzz API",
   "author": "banphlet <annor_theophilus@hotmail.com>",
   "homepage": "https://github.com/kudobuzz/kbjs-clients#readme",
@@ -26,7 +26,8 @@
     "url": "https://github.com/kudobuzz/kbjs-clients/issues"
   },
   "dependencies": {
-    "@kudobuzz/kbjs-core": "0.0.5"
+    "@kudobuzz/kbjs-core": "0.0.7",
+    "axios": "^1.20.0"
   },
   "devDependencies": {
     "ts-xor": "1.0.8"

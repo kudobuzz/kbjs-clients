@@ -1,6 +1,6 @@
 {
   "name": "@kudobuzz/kbjs-core",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Core wrapper for kudobuzz client packages",
   "keywords": [
     "Kudobuzz"
@@ -23,8 +23,8 @@
     "prepublishOnly": "npm run tsc"
   },
   "dependencies": {
-    "axios": "0.27.2",
-    "axios-retry": "3.2.5",
+    "axios": "^1.20.0",
+    "axios-retry": "^3.9.1",
     "yup": "0.32.11"
   },
   "publishConfig": {
