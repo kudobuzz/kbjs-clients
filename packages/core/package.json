@@ -1,6 +1,6 @@
 {
   "name": "@kudobuzz/kbjs-core",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Core wrapper for kudobuzz client packages",
   "keywords": [
     "Kudobuzz"
